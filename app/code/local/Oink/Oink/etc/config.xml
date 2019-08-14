@@ -174,7 +174,7 @@
                 <APIkey>gadgetboom123</APIkey>
                 <two_steps_authorization>0</two_steps_authorization>
                 <Currency>USD</Currency>
-                <DefaultShipmentMethod>Delivery</DefaultShipmentMethod>
+                <DefaultShipmentMethod>Let Customer Select Shipping Method</DefaultShipmentMethod>
                 <order_expiration_time>5</order_expiration_time>
             </merchant_info>
             <checkoutbutton>
@@ -185,7 +185,7 @@
             <messages>
                 <login_error>Invalid username or password</login_error>
                 <max_login_attemps>Too many login attempts. Your account is locked for 10 minutes.</max_login_attemps>
-                <shipping_error>Unfortunately we cannot ship to your area. Sorry!</shipping_error>
+
                 <approval_required>We are waiting to hear back from your parents. Thanks for using Oink.</approval_required>
                 <transaction_declined>We could not process your transaction. Please try again.</transaction_declined>
                 <insufficient_funds>The Transaction was denied because you do not have enough funds available.</insufficient_funds>

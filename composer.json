@@ -3,7 +3,7 @@
     "type": "magento-module",
     "license": "LGPL",
     "homepage": "",
-    "description": "Oink is a module for eCommerce storefronts that allows children to safely make online purchases.",
+    "description": "Oink is a module for eCommerce storefronts that allows children to safely make online purchases. ",
     "authors": [
     {
         "name": "Simon Taft",

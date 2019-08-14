@@ -45,7 +45,7 @@ class OinkParentService implements IParentService{
             $result_dto->Status = $result->AuthenticateParentResult->Status;            
             
         } catch(Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
     }
@@ -62,7 +62,7 @@ class OinkParentService implements IParentService{
             $result = $client->GetChildProfiles($params);
             return $result;
         } catch(Exception $e) {
-            echo "Exception occured: ".$e;
+            echo $e->getMessage();
         }
    }
 }

@@ -21,7 +21,7 @@ class MerchantPaymentServiceConfiguration implements IPaymentServiceConfiguratio
         $config->MerchantIdentifier = "03d081e1-2d57-4c98-8f1b-bbb83d4ab14a";
         $config->APIkey  = "gadgetboom123";
         $config->Currency = "USD";
-        $config->DefaultShipmentMethod = "Delivery";
+        $config->DefaultShipmentMethod = "Let Customer Select Shipping Method";
         return $config;
     }
 }   

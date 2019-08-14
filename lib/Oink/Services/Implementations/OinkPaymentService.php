@@ -72,7 +72,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->Status = $result->AuthenticateChildResult->Status;
 
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
     }
@@ -98,7 +98,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->Status = $result->AuthenticateUserResult->Status;
             $result_dto->UserType = $result->AuthenticateUserResult->UserType;
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
     }
@@ -117,7 +117,7 @@ class OinkPaymentService implements IPaymentService {
             $profile->Gender = $result->GetChildGenderAgeResult->Gender;
             $profile->ErrorMessage = $result->GetChildGenderAgeResult->ErrorMessage;
         } catch (Exception $e) {
-            $profile->ErrorMessage = "Exception occured: " . $e;
+            $profile->ErrorMessage = $e->getMessage();
         }
         return $profile;
     }
@@ -149,7 +149,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->ParentName = $result->GetChildAddressResult->Name;
             $result_dto->ChildName = $result->GetChildAddressResult->AttentionOf;
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
     }
@@ -180,7 +180,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->ParentEmail = $result->GetParentAddressResult->ParentEmail;
             $result_dto->ParentName = $result->GetParentAddressResult->Name;
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
     }
@@ -212,7 +212,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->ParentEmail = $result->GetParentChildAddressResult->ParentEmail;
             $result_dto->ParentName = $result->GetParentChildAddressResult->Name;
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
     }
@@ -245,7 +245,7 @@ class OinkPaymentService implements IPaymentService {
                 $childrens[] = $children;
             }
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
             return $result_dto;
         }
         return $childrens;
@@ -281,7 +281,7 @@ class OinkPaymentService implements IPaymentService {
                 $paymentAccounts[] = $paymentAccount;
             }
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
             return $result_dto;
         }
         return $paymentAccounts;
@@ -330,7 +330,7 @@ class OinkPaymentService implements IPaymentService {
             );
             $return = $client->GetTransactions($params);
         } catch (Exception $e) {
-            echo "Exception occured: " . $e;
+            echo $e->getMessage();
         }
     }
 
@@ -355,7 +355,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->TransactionStatus = $result->ProcessTransactionResult->TransactionStatus;
             $result_dto->TransactionIdentifier = $result->ProcessTransactionResult->TransactionIdentifier;
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
     }
@@ -383,7 +383,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->TransactionStatus = $result->ProcessParentTransactionResult->TransactionStatus;
             $result_dto->TransactionIdentifier = $result->ProcessParentTransactionResult->TransactionIdentifier;
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
     }
@@ -406,7 +406,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->Name = $result->ProcessSubscriptionResult->Name;
             $result_dto->Type = $result->ProcessSubscriptionResult->Type;
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;    
+            $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result;
     }
@@ -427,7 +427,7 @@ class OinkPaymentService implements IPaymentService {
             );
             $result = $client->ApproveSubscription($params);
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
             return $result_dto;    
         }
         return $result;
@@ -444,7 +444,7 @@ class OinkPaymentService implements IPaymentService {
             );
             $result = $client->ApproveSubscription($params);
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
             return $result_dto;    
         }
         return $result;
@@ -461,7 +461,7 @@ class OinkPaymentService implements IPaymentService {
             );
             $result = $client->ApproveSubscription($params);
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
             return $result_dto;    
         }
         return $result;
@@ -478,7 +478,7 @@ class OinkPaymentService implements IPaymentService {
             );
             $result = $client->ApproveSubscription($params);
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
             return $result_dto;    
         }
         return $result;
@@ -495,7 +495,7 @@ class OinkPaymentService implements IPaymentService {
             );
             $result = $client->ApproveSubscription($params);
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
             return $result_dto;    
         }
         return $result;
@@ -515,7 +515,7 @@ class OinkPaymentService implements IPaymentService {
             );
             $result = $client->SaveWishList($params);
         } catch (Exception $e) {
-            echo "Exception occured: " . $e;
+            echo $e->getMessage();
         }
         $status = new dtoWishlistStatus();
         $status->Children = $result->SaveWishListResult->Children;
@@ -555,7 +555,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->Status = $result->CaptureTransactionByIdentifierResult->Status;
         } catch (Exception $e) {
 
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
     }
@@ -575,7 +575,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->ErrorMessage = $result->CaptureTransactionByIdentifierResult->ErrorMessage;
             $result_dto->Status = $result->CaptureTransactionByIdentifierResult->Status;
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = "Exception occured: " . $e;
+            $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
     }

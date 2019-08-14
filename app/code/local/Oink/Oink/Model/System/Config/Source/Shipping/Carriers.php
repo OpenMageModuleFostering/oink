@@ -15,12 +15,9 @@ class Oink_Oink_Model_System_Config_Source_Shipping_Carriers
     {
         if (!$this->_options) {
             $this->_options = $this->getShippingOptions();
+            array_unshift($this->_options, array('label'=>'Let Customer Select Shipping Method', 'value' => ''));
         }
         $options = $this->_options;
-        if(!$isMultiselect){
-            array_unshift($options, array('value'=>'', 'label'=>''));
-        }
-
         return $options;
     }
     /**
