@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<ns1:cart
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xmlns:ns1='null'
+    xsi:schemaLocation='null Oink.xsd'>
+    <ns1:cart-shipment total="5.00">
+        <ns1:shipment-tax total="0.00"></ns1:shipment-tax>
+        <ns1:shipment-cost total="0.00"></ns1:shipment-cost>
+        <ns1:shipment-discount total="0.00"></ns1:shipment-discount>
+        <ns1:reward-points total="0"></ns1:reward-points>
+        <ns1:shipment-address>
+            <ns1:address>1234 easy st</ns1:address>
+            <ns1:zip>91367</ns1:zip>
+            <ns1:city>woodland</ns1:city>
+            <ns1:state>ca</ns1:state>
+            <ns1:country>US</ns1:country>
+            <ns1:phone>555.555.5555</ns1:phone>
+            <ns1:name>parent</ns1:name>
+            <ns1:attention-of>kid</ns1:attention-of>
+        </ns1:shipment-address>
+        <ns1:items>
+            <ns1:item total="5.00">
+                <ns1:item-identifier>toy01</ns1:item-identifier>
+                <ns1:item-name>fun toy</ns1:item-name>
+                <ns1:item-description>a really cool toy</ns1:item-description>
+                <ns1:item-price>5.00</ns1:item-price>
+                <ns1:item-quantity>1</ns1:item-quantity>
+            </ns1:item>
+        </ns1:items>
+    </ns1:cart-shipment>
+
+</ns1:cart>

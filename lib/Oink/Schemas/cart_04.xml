@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<cart currency="USD" total="18.00">
+    <cart-shipment total="18.00">
+        <shipment-tax total="0.0" />
+        <shipment-cost total="0.0" />
+        <items>
+            <item total="18.00">
+                <item-name>Mega Bloks Halo Wars</item-name>
+                <item-description>Mega Bloks Halo Wars - UNSC Gremlin (96818)</item-description>
+                <item-price>18.00</item-price>
+                <item-quantity>1</item-quantity>
+            </item>
+        </items>
+    </cart-shipment>
+</cart>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <global>
+        <resources>
+            <default_setup>
+                <connection>
+                    <dbname><![CDATA[oink_test]]></dbname>
+                </connection>
+            </default_setup>
+        </resources>
+    </global>
+    <default>
+        <web>
+            <seo>
+                <use_rewrites>1</use_rewrites>
+            </seo>
+            <secure>
+                <base_url>http://oink.test.localhost.net/</base_url>
+            </secure>
+            <unsecure>
+                <base_url>http://oink.test.localhost.net/</base_url>
+            </unsecure> 
+        </web>
+    </default>
+</config>

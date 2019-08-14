@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_sales_order_view>
+        <reference name="sales_order_tabs">
+            <block type="oink/adminhtml_sales_order_view_tab_oink" name="order_tab_oink" template="oink/sales/order/view/tab/oink.phtml" />
+            <action method="addTab">
+                <name>oink_data</name>
+                <block>order_tab_oink</block>
+            </action>
+        </reference>
+    </adminhtml_sales_order_view>
+</layout>

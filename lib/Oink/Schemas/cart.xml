@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vp:cart
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xmlns:vp='null'
+    xsi:schemaLocation='null https://development.oink.com/Schemas/Oink.xsd'>
+    <vp:cart-shipment total="5.00">
+        <vp:shipment-tax total="0.00"></vp:shipment-tax>
+        <vp:items>
+            <vp:item total="5.00">
+                <vp:item-name>Buzz lightyear</vp:item-name>
+                <vp:item-description>Toystory toy</vp:item-description>
+                <vp:item-price>5.00</vp:item-price>
+                <vp:item-quantity>1</vp:item-quantity>
+            </vp:item>
+        </vp:items>
+    </vp:cart-shipment>
+</vp:cart>

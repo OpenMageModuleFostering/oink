@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <oink_checkout_index>
+        <reference name="content">
+            <block type="oink/checkout_review" name="oink.checkout.review" as="review" template="oink/checkout/review.phtml">
+                <block type="oink/checkout_review_info" name="oink.checkout.review.info" as="info" template="oink/checkout/review/info.phtml" >
+                    <action method="addItemRender">
+                        <type>default</type>
+                        <block>checkout/cart_item_renderer</block>
+                        <template>checkout/onepage/review/item.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>grouped</type>
+                        <block>checkout/cart_item_renderer_grouped</block>
+                        <template>checkout/onepage/review/item.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>configurable</type>
+                        <block>checkout/cart_item_renderer_configurable</block>
+                        <template>checkout/onepage/review/item.phtml</template>
+                    </action>
+                    <block type="checkout/cart_totals" name="oink.checkout.review.info.totals" as="totals" template="checkout/onepage/review/totals.phtml"/>
+                    <block type="core/text_list" name="oink.checkout.review.info.items.before" as="items_before" translate="label">
+                        <label>Items Before</label>
+                    </block>
+                    <block type="checkout/agreements" name="oink.checkout.agreements" as="agreements" template="checkout/onepage/agreements.phtml"/>
+                    <block type="core/template" name="oink.checkout.review.button" as="button" template="oink/checkout/review/button.phtml"/>
+                </block>
+            </block>
+        </reference>
+    </oink_checkout_index>
+
+    <oink_checkout_parentconfirm>
+        <reference name="content">
+            <block type="oink/checkout_parentConfirm" template="oink/checkout/parent_confirm.phtml" name="oink.checkout.parentConfirm" as="parentConfirm" >
+                <block type="oink/checkout_parentConfirm_CSelect" template="oink/checkout/parent_confirm/c_select.phtml" name="oink.checkout.parentConfirm.CSelect" as="CSelect" />
+                <block type="oink/checkout_parentConfirm_payment" template="oink/checkout/parent_confirm/payment.phtml" name="oink.checkout.parentConfirm.payment" as="payment" />
+            </block>
+        </reference>
+    </oink_checkout_parentconfirm>
+
+    <checkout_cart_index>
+        <reference name="checkout.cart.methods">
+            <block type="oink/checkout_button" template="oink/checkout/button/form.phtml" name="oink_login" />
+            <block type="oink/checkout_button" template="oink/checkout/cart/button.phtml" name="oink_checkoutbutton" before="checkout.cart.methods.multishipping" />
+        </reference>
+    </checkout_cart_index>
+
+    <checkout_onepage_index>
+        <reference name="content">
+            <block type="oink/checkout_button" template="oink/checkout/button/form.phtml" name="oink_login" />
+        </reference>
+    </checkout_onepage_index>
+</layout>

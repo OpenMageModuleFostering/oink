@@ -1,0 +1,70 @@
+<?php /* @var $this Oink_Oink_Block_Checkout_Button */ ?>
+<?php $config = Mage::getStoreConfig('checkout/options'); ?>
+<script type="text/javascript">
+    /*   TODO: Get non-lossy image assets.
+     var oinkRadioImgs = new Array(
+     '68x8.png', '68x9.png', '68x10.png','68x11.png', '68x12.png', '68x13.png', '68x14.png',
+     '68x15.png', '68x16.png', '68x17.png', '68x18.png', '68x19.png', '68x20.png');
+     */
+
+    // 1. create "oinkRadio" element
+    // 2. save onepage-guest-register-button onclick method (prevents overiding core)
+    // 3. create vpCheckout method
+    // 4. only add Oink "radio" and replace "onepage" button (#2) if guest_checkout enabled.
+    // 5. in checkoutVP call onepage onclick method if Oink Radio not selected
+    // 6. use admin (config) for Oink image ->
+
+
+	var vp_onepageclick = null;
+    document.observe('dom:loaded', function(){
+
+        // 2. Save "Onepage Checkout(Magento)" onclick "function"
+        vp_onepageclick = $('onepage-guest-register-button').onclick;
+
+
+        // 4. If "Allow Guest Checkout" enabled, add Oink "radio" select and replace "onepage" guest with "oink"
+        var oinkCheckoutType = '<?php echo Mage::getStoreConfig("oink/checkoutbutton/oink_radio"); ?>';
+        var guestCheckoutEnabled = '<?php echo $config['guest_checkout']; ?>';
+        if(guestCheckoutEnabled == '1') {
+            // Merchant selected (0) "Checkout Button and Radio Select" OR
+            // Merchant selected (2) "Radio Select Only"
+            if(oinkCheckoutType == '1' || oinkCheckoutType == '0') {
+                var continueBtnHeight = $('onepage-guest-register-button').getHeight();
+                var oinkCheckoutBtn = '<a href="<?php echo $this->getCheckoutUrl() ?>" id="oink-checkout-button" onclick="return oinkLoginForm.toggleTooltip()" class="<?php echo $this->getCssClass() ?>"><img src="https://cdn.virtualpiggy.com/public/images/checkout-145x42.png" style="height: '+continueBtnHeight+'px" /></a>';
+                $('onepage-guest-register-button').up(0).insert(oinkCheckoutBtn);
+            }
+            if(oinkCheckoutType == '2' || oinkCheckoutType == '0') {
+                var radioOptionHeight = getRadioOptionHeight();
+                // 1. Oink Radio Button
+                var oinkRadio = '<li class="control"><input type="radio" name="checkout_method" id="lologin:oink" value="oink" class="radio"> <label for="login:oink"><img src="https://cdn.virtualpiggy.com/public/images/checkout-radio-68x20.png" height="'+radioOptionHeight+'px" style="vertical-align:middle;" /></label></li>';
+                $('login:register').up(0).insert({
+                    before: oinkRadio
+                });
+                // 3. Create Oink onclick "function"
+                var vpContinue = '<button id="onepage-guest-register-button" type="button" class="button" onclick="checkoutVP();"><span><span>Continue</span></span></button>';
+                $('onepage-guest-register-button').replace(vpContinue);
+            }
+        }
+    });
+
+    function getRadioOptionHeight() {
+        var radioOptionLayout = $('login:register').up(0).getLayout();
+        var radioOptionHeight = radioOptionLayout.get('height')-radioOptionLayout.get('margin-top')-radioOptionLayout.get('margin-bottom');
+        if(radioOptionHeight <  8)
+            radioOptionHeight = 8;
+        if(radioOptionHeight > 20)
+            radioOptionHeight = 20;
+        return radioOptionHeight;
+    }
+
+    function checkoutVP() {
+        // 5. if Oink Radio selected display Oink Login else call "Onepage Checkout (Magento)"
+        if(document.getElementById('lologin:oink').checked) {
+            oinkLoginForm.toggleTooltip();
+        }
+        else {
+            vp_onepageclick();
+        }
+    }
+
+</script>

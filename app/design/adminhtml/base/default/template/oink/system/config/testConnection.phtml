@@ -1,0 +1,34 @@
+<script type="text/javascript">
+    function testOinkConnection() {
+        var elem = $('oink_merchant_info_testConnection');
+
+        params = {
+			transactionServiceEndpointAddress: $('oink_merchant_info_TransactionServiceEndpointAddress').value,
+            merchantIdentifier: $('oink_merchant_info_MerchantIdentifier').value,
+            apiKey: $('oink_merchant_info_APIkey').value
+        };
+
+        new Ajax.Request('<?php echo $this->getAjaxUrl() ?>', {
+            parameters: params,
+            method: 'get',
+            onSuccess: function(response) {
+                result = 'Connection failed! Test again?';
+                try {
+                    response = response.responseText;
+                    if (response == 1) {
+                        result = 'Successful! Test again?';
+                        elem.removeClassName('delete').addClassName('success')
+                    } else {
+                        elem.removeClassName('success').addClassName('delete')
+                    }
+                } catch (e) {
+                    elem.removeClassName('success').addClassName('delete')
+                }
+                $('connection_test_result').update(result);
+            }
+        });
+    }
+</script>
+<button onclick="javascript:testOinkConnection(); return false;" class="scalable" type="button" id="oink_merchant_info_testConnection">
+    <span id="connection_test_result">Test Connection</span>
+</button>

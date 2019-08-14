@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Oink",
+    "type": "magento-module",
+    "license": "LGPL",
+    "homepage": "",
+    "description": "Oink is a module for eCommerce storefronts that allows children to safely make online purchases.",
+    "authors": [
+    {
+        "name": "Dane De Forest",
+        "email": "dane@virtualpiggy.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

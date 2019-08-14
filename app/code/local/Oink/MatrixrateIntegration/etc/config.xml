@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Oink_MatrixrateIntegration>
+            <version>1.0.0.0</version>
+        </Oink_MatrixrateIntegration>
+    </modules>
+    <global>
+        <models>
+            <oink_matrixrate_integration>
+                <class>Oink_MatrixrateIntegration_Model</class>
+            </oink_matrixrate_integration>
+        </models>
+        <events>
+            <oink_after_set_shipping_method>
+                <observers>
+                    <oink_matrixrate_integration>
+                        <class>oink_matrixrate_integration/observer</class>
+                        <method>oinkAfterSetShippingMethod</method>
+                    </oink_matrixrate_integration>
+                </observers>
+            </oink_after_set_shipping_method>
+        </events>
+    </global>
+    <frontend>
+    </frontend>
+    <default>
+        <oink>
+            <matrixrate>
+                <shipping_methods>
+                    <expedited>
+                        <method>FedEx Expedited (2-3 Day) (w/ Tracking)</method>
+                    </expedited>
+                    <ground>
+                        <method>FedEx Ground (w/ Tracking)</method>
+                    </ground>
+                    <overnight>
+                        <method>FedEx Overnight (w/ Tracking)</method>
+                    </overnight>
+                    <standard>
+                        <method>Standard USPS (w/ Delivery Confirmation)</method>
+                    </standard>
+                </shipping_methods>
+            </matrixrate>
+        </oink>
+    </default>
+</config>

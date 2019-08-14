@@ -1,0 +1,33 @@
+<?php
+$methods = $this->getMethods();
+?>
+<li class="section allow active" id="opc-billing">
+    <div class="step-title">
+        <h2>Payment information</h2>
+    </div>
+
+    <div id="checkout-step-billing" class="step a-item" style="">
+        <fieldset>
+            <ul class="form-list">
+                <li id="billing-new-address-form">
+                    <fieldset>
+                        <ul>
+                            <li class="fields">
+                                <div class="field">
+                                    <ul>
+                                        <?php foreach ($methods as $i => $method): ?>
+                                            <li class="control">
+                                                <input type="radio" value="<?php echo $method->getToken() ?>" name="paymentAccount" <?php if ($i == count($methods) - 1): ?>class="validate-one-required-by-name"<?php endif; if($method == $methods[0]) echo 'checked'; ?> />
+                                                <label for="deliverToChildAddress" ><img style="width:30px;" src="<?php echo $method->getUrl() ?>" /> <span><?php echo $method->getName() ?></span></label>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </li>
+            </ul>
+        </fieldset>
+    </div>	
+</li>

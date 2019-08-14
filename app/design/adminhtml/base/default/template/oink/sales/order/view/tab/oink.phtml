@@ -1,0 +1,37 @@
+<?php
+$order = $this->_order;
+$info = $order->getAdditionalInformation();
+$helper=Mage::helper("oink");
+?>
+<?php if (isset($info["cartXML"])): ?>
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-account"><?php echo Mage::helper('oink')->__('Cart XML') ?></h4>
+        </div>
+        <div class="fieldset" style="overflow:auto;">
+            <pre><?php echo htmlspecialchars ($info["cartXML"]) ?></pre>
+        </div>
+    </div>
+<?php endif; ?>
+
+<?php if (isset($info["processTransactionResponse"])): ?>
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-account"><?php echo Mage::helper('oink')->__('Transaction Response') ?></h4>
+        </div>
+        <div class="fieldset" style="overflow:auto;">
+            <pre><?php echo htmlspecialchars ($helper->formatXmlString($info["processTransactionResponse"])) ?></pre>
+        </div>
+    </div>
+<?php endif; ?>
+
+<?php if (isset($info["receivedCallbackMessage"])): ?>
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-account"><?php echo Mage::helper('oink')->__('Approval Callback') ?></h4>
+        </div>
+        <div class="fieldset" style="overflow:auto;">
+            <?php echo $info["receivedCallbackMessage"] ?>
+        </div>
+    </div>
+<?php endif; ?>

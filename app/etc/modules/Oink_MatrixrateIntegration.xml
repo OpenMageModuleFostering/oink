@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Oink_MatrixrateIntegration>
+            <active>false</active>
+            <codePool>local</codePool>
+            <depends>
+                <Oink_Oink />
+                <Auctionmaid_Matrixrate />
+            </depends>
+        </Oink_MatrixrateIntegration>
+    </modules>
+</config>

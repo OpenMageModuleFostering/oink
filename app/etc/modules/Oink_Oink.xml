@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Oink_Oink>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Oink_Oink>
+    </modules>
+</config>
