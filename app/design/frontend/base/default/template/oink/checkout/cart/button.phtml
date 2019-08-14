@@ -2,4 +2,12 @@
 <?php
 if(Mage::helper("oink/checkout")->isEnabled()) { ?>
     <a href="<?php echo $this->getCheckoutUrl() ?>" id="oink-cart-button" onclick="return oinkLoginForm.toggleTooltip()" class="<?php echo $this->getCssClass() ?>"><img src="https://cdn.virtualpiggy.com/public/images/checkout-145x42.png" /></a>
+    <script type="text/javascript">
+    document.observe("dom:loaded", function() {
+            if (this.body.hasClassName('onestepcheckout-index-index')) {
+                var button = this.getElementById('oink-cart-button');
+                button.style.display = "none";
+            }
+        });
+    </script>
 <?php } ?>

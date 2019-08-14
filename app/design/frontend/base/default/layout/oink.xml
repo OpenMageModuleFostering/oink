@@ -72,4 +72,11 @@
             <block type="oink/checkout_button" template="oink/checkout/button/form.phtml" name="oink_login" />
         </reference>
     </checkout_onepage_index>
+	
+	<onestepcheckout_index_index>
+        <reference name="content">
+            <block type="oink/checkout_button" template="oink/checkout/button/form.phtml" name="oink_login" />
+            <block type="oink/checkout_button" template="oink/checkout/cart/button.phtml" name="oink_checkoutbutton" before="checkout.cart.methods.multishipping" />
+        </reference>
+    </onestepcheckout_index_index>
 </layout>

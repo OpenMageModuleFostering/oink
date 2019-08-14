@@ -43,7 +43,7 @@
                             <show_in_store>1</show_in_store>
                         </TransactionServiceEndpointAddress>
                         <MerchantIdentifier translate="label">
-                            <label>Merchant Identifier</label>
+                            <label>Store Identifier</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>17</sort_order>
                             <show_in_default>1</show_in_default>
@@ -137,95 +137,6 @@
                         </oink_cart_checkout_margin_top>
                     </fields>
                 </checkoutbutton>
-                <messages>
-                    <label>Messages</label>
-                    <sort_order>150</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                    <fields>
-                        <login_error translate="label">
-                            <label>Authentication error</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>10</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </login_error>
-                        <max_login_attemps translate="label">
-                            <label>Max. login attemps</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>20</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </max_login_attemps>
-                        <shipping_error translate="label">
-                            <label>Shipping calculation error</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>40</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </shipping_error>
-                        <approval_required translate="label">
-                            <label>Approval required</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>50</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </approval_required>
-                        <success_transaction translate="label">
-                            <label>Successful transaction</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>55</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </success_transaction>
-                        <transaction_declined translate="label">
-                            <label>* Default (catch-all) *</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>60</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </transaction_declined>
-                        <insufficient_funds translate="label">
-                            <label>Insufficient funds</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>70</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </insufficient_funds>
-                        <transaction_not_authorized translate="label">
-                            <label>Not approved for merchant</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>80</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </transaction_not_authorized>
-                        <parent_configuration translate="label">
-                            <label>No payment account / No children</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>80</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </parent_configuration>
-                        <payment_not_accepted translate="label">
-                            <label>Payment type not accepted</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>90</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </payment_not_accepted>
-                    </fields>
-                </messages>
             </groups>
         </oink>
         <payment>

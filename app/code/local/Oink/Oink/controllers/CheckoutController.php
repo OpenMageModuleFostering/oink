@@ -43,8 +43,7 @@ class Oink_Oink_CheckoutController extends Mage_Core_Controller_Front_Action
         try {
             $this->loadLayout()->renderLayout();
         } catch (Exception $e) {
-            $errorMessage = Mage::getSingleton("oink/errorHandler")->rewriteError($e->getMessage());
-            Mage::getSingleton("core/session")->addError($errorMessage);
+            Mage::getSingleton("core/session")->addError($e->getMessage());
             $this->_redirect("checkout/cart/index");
         }
     }
@@ -58,8 +57,8 @@ class Oink_Oink_CheckoutController extends Mage_Core_Controller_Front_Action
             $this->loadLayout()->renderLayout();
 
         } catch (Exception $e) {
-            $errorMessage = Mage::getSingleton("oink/errorHandler")->rewriteError($e->getMessage());
-            Mage::getSingleton("core/session")->addError($errorMessage);
+
+            Mage::getSingleton("core/session")->addError($e->getMessage());
             $this->_redirect("checkout/cart/index");
         }
     }
@@ -76,11 +75,7 @@ class Oink_Oink_CheckoutController extends Mage_Core_Controller_Front_Action
         try {
             $loginResponse["response"] = (bool)Mage::helper("oink")->authenticateUser($user, $password);
         } catch (Exception $e) {
-            if (strpos($e->getMessage(), "temporarily disabled") !== false) {
-                $loginResponse["errorMessage"] = Mage::getStoreConfig("oink/messages/max_login_attemps");
-            } else {
-                $loginResponse["errorMessage"] = Mage::getStoreConfig("oink/messages/login_error");
-            }
+            $loginResponse["errorMessage"] = $e->getMessage();
         }
         /*
            * Zend_Json_Encoder is required for magento to work. This will always be available in magento installations.
@@ -120,7 +115,6 @@ class Oink_Oink_CheckoutController extends Mage_Core_Controller_Front_Action
                 $originalOrder = Mage::getModel('sales/order')->load($order->getOrderId());
 
                 if ($result->TransactionStatus == Oink_Oink_Helper_Checkout::APPROVAL_PENDING_CODE) {
-                    $message = Mage::getStoreConfig("oink/messages/approval_required");
                     $originalOrder->setState(Mage_Sales_Model_Order::STATE_PENDING_PAYMENT, true, 'Awaiting parent approval - TXID: '.$result->TransactionIdentifier);
 
                     $originalOrder->setOinkStatus(
@@ -142,8 +136,7 @@ class Oink_Oink_CheckoutController extends Mage_Core_Controller_Front_Action
                 $path = "oink/checkout/success";
                 $this->_reset();
             } else {
-                $errorMessage = Mage::getSingleton("oink/errorHandler")->rewriteError($result->ErrorMessage);
-                Mage::getSingleton("core/session")->addError($errorMessage);
+                Mage::getSingleton("core/session")->addError($result->ErrorMessage);
                 $path = "*/*/index";
             }
         } catch (Exception $e) {
@@ -287,6 +280,8 @@ class Oink_Oink_CheckoutController extends Mage_Core_Controller_Front_Action
      */
     public function successAction()
     {
+        $lastOrderId = $this->getCheckout()->getLastOrderId();
+        Mage::dispatchEvent('checkout_onepage_controller_success_action', array('order_ids' => array($lastOrderId)));
         $this->loadLayout()
             ->renderLayout();
     }

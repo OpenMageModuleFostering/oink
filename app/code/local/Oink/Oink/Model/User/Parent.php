@@ -27,19 +27,20 @@ class Oink_Oink_Model_User_Parent
      */
     public function getChildrens(){
         if(is_null($this->_childrens)){
-            $paymentService = Mage::helper("oink")->getOinkPaymentService();
-            $_childrens=$paymentService->GetAllChildren($this->getToken());
-            $childrens=array();
-            foreach ($_childrens as $_children) {
-                $children=Mage::getModel("oink/user_children");
-                $children->setChildrenIdentifier($_children->Token);
-                $children->setName($_children->Name);
-                $childrens[]=$children;
+            try{
+                $paymentService = Mage::helper("oink")->getOinkPaymentService();
+                $_childrens=$paymentService->GetAllChildren($this->getToken());
+                $childrens=array();
+                foreach ($_childrens as $_children) {
+                    $children=Mage::getModel("oink/user_children");
+                    $children->setChildrenIdentifier($_children->Token);
+                    $children->setName($_children->Name);
+                    $childrens[]=$children;
+                }
+                $this->_childrens=$childrens;
+            } catch (Exception $e) {
+                throw new Exception ($e->getMessage());
             }
-            $this->_childrens=$childrens;
-        }
-        if(count($this->_childrens)<1){
-            Mage::throwException("parent_configuration");
         }
         return $this->_childrens;
     }
@@ -88,26 +89,26 @@ class Oink_Oink_Model_User_Parent
      */
     public function getPaymentMethods(){
         if(is_null($this->_paymentMethods)){
-            $paymentService = Mage::helper("oink")->getOinkPaymentService();
-            $_paymentMethods=$paymentService->GetPaymentAccounts($this->getToken());
-            $paymentMethods=array();
-            foreach ($_paymentMethods as $_paymentMethod) {
-                $paymentMethod=new Varien_Object(array(
-                    "token"=>$_paymentMethod->Token,
-                    "name"=>$_paymentMethod->Name,
-                    "url"=>$_paymentMethod->Url,
-                    "type"=>$_paymentMethod->Type,
-                ));
-                $paymentMethods[]=$paymentMethod;
+            try {
+                $paymentService = Mage::helper("oink")->getOinkPaymentService();
+                $_paymentMethods=$paymentService->GetPaymentAccounts($this->getToken());
+                $paymentMethods=array();
+                foreach ($_paymentMethods as $_paymentMethod) {
+                    $paymentMethod=new Varien_Object(array(
+                        "token"=>$_paymentMethod->Token,
+                        "name"=>$_paymentMethod->Name,
+                        "url"=>$_paymentMethod->Url,
+                        "type"=>$_paymentMethod->Type,
+                    ));
+                    $paymentMethods[]=$paymentMethod;
+                }
+                $this->_paymentMethods=$paymentMethods;
+            } catch (Exception $e) {
+                throw new Exception($e->getMessage());
             }
-            $this->_paymentMethods=$paymentMethods;
-        }
-        if(count($this->_paymentMethods)<1){
-            Mage::throwException("parent_configuration");
         }
         return $this->_paymentMethods;
     }
-
 }
 
 ?>

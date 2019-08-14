@@ -68,8 +68,7 @@ class Oink_Oink_Model_Observer
                 if ($result) {
                     Mage::helper("oink")->log($result, "resultOfProcessTwoSteps");
                     if (!(bool)$result->Status) {
-                        $errorMessage = Mage::getSingleton("oink/errorHandler")->rewriteError($result->ErrorMessage);
-                        Mage::getSingleton("core/session")->addError($errorMessage);
+                        Mage::getSingleton("core/session")->addError($result->ErrorMessage);
                     }
                 }
             }

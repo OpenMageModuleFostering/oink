@@ -72,6 +72,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->Status = $result->AuthenticateChildResult->Status;
 
         } catch (Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
@@ -98,6 +99,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->Status = $result->AuthenticateUserResult->Status;
             $result_dto->UserType = $result->AuthenticateUserResult->UserType;
         } catch (Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
@@ -117,6 +119,7 @@ class OinkPaymentService implements IPaymentService {
             $profile->Gender = $result->GetChildGenderAgeResult->Gender;
             $profile->ErrorMessage = $result->GetChildGenderAgeResult->ErrorMessage;
         } catch (Exception $e) {
+            Mage::log($e);
             $profile->ErrorMessage = $e->getMessage();
         }
         return $profile;
@@ -149,6 +152,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->ParentName = $result->GetChildAddressResult->Name;
             $result_dto->ChildName = $result->GetChildAddressResult->AttentionOf;
         } catch (Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
@@ -180,6 +184,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->ParentEmail = $result->GetParentAddressResult->ParentEmail;
             $result_dto->ParentName = $result->GetParentAddressResult->Name;
         } catch (Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
@@ -212,6 +217,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->ParentEmail = $result->GetParentChildAddressResult->ParentEmail;
             $result_dto->ParentName = $result->GetParentChildAddressResult->Name;
         } catch (Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
@@ -245,8 +251,8 @@ class OinkPaymentService implements IPaymentService {
                 $childrens[] = $children;
             }
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = $e->getMessage();
-            return $result_dto;
+            Mage::log($e);
+            throw new Exception($e->getMessage());
         }
         return $childrens;
     }
@@ -281,8 +287,8 @@ class OinkPaymentService implements IPaymentService {
                 $paymentAccounts[] = $paymentAccount;
             }
         } catch (Exception $e) {
-            $result_dto->ErrorMessage = $e->getMessage();
-            return $result_dto;
+            Mage::log($e);
+            throw new Exception($e->getMessage());
         }
         return $paymentAccounts;
     }
@@ -310,10 +316,8 @@ class OinkPaymentService implements IPaymentService {
              */
             $return = $client->GetTransactionDetails($params);
         } catch (Exception $e) {
-            /*
-             * TODO: Need to add exception message to dtoTransactionDetails DTO
-             */
-            return $e;
+            Mage::log($e);
+            throw new Exception($e->getMessage());
         }
         return $return;
     }
@@ -330,6 +334,7 @@ class OinkPaymentService implements IPaymentService {
             );
             $return = $client->GetTransactions($params);
         } catch (Exception $e) {
+            Mage::log($e);
             echo $e->getMessage();
         }
     }
@@ -355,6 +360,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->TransactionStatus = $result->ProcessTransactionResult->TransactionStatus;
             $result_dto->TransactionIdentifier = $result->ProcessTransactionResult->TransactionIdentifier;
         } catch (Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
@@ -383,6 +389,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->TransactionStatus = $result->ProcessParentTransactionResult->TransactionStatus;
             $result_dto->TransactionIdentifier = $result->ProcessParentTransactionResult->TransactionIdentifier;
         } catch (Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
@@ -406,6 +413,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->Name = $result->ProcessSubscriptionResult->Name;
             $result_dto->Type = $result->ProcessSubscriptionResult->Type;
         } catch (Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result;
@@ -427,6 +435,7 @@ class OinkPaymentService implements IPaymentService {
             );
             $result = $client->ApproveSubscription($params);
         } catch (Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
             return $result_dto;    
         }
@@ -444,6 +453,7 @@ class OinkPaymentService implements IPaymentService {
             );
             $result = $client->ApproveSubscription($params);
         } catch (Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
             return $result_dto;    
         }
@@ -461,6 +471,7 @@ class OinkPaymentService implements IPaymentService {
             );
             $result = $client->ApproveSubscription($params);
         } catch (Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
             return $result_dto;    
         }
@@ -478,6 +489,7 @@ class OinkPaymentService implements IPaymentService {
             );
             $result = $client->ApproveSubscription($params);
         } catch (Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
             return $result_dto;    
         }
@@ -495,6 +507,7 @@ class OinkPaymentService implements IPaymentService {
             );
             $result = $client->ApproveSubscription($params);
         } catch (Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
             return $result_dto;    
         }
@@ -515,6 +528,7 @@ class OinkPaymentService implements IPaymentService {
             );
             $result = $client->SaveWishList($params);
         } catch (Exception $e) {
+            Mage::log($e);
             echo $e->getMessage();
         }
         $status = new dtoWishlistStatus();
@@ -531,6 +545,7 @@ class OinkPaymentService implements IPaymentService {
             $client = $this->GetSoapClient();
             $result = $client->PingHeaders();
         } catch (Exception $e) {
+            Mage::log($e);
             return false;
         }
         if(isset($result->PingHeadersResult->scalar)){
@@ -554,7 +569,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->ErrorMessage = $result->CaptureTransactionByIdentifierResult->ErrorMessage;
             $result_dto->Status = $result->CaptureTransactionByIdentifierResult->Status;
         } catch (Exception $e) {
-
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
@@ -575,6 +590,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->ErrorMessage = $result->CaptureTransactionByIdentifierResult->ErrorMessage;
             $result_dto->Status = $result->CaptureTransactionByIdentifierResult->Status;
         } catch (Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;

@@ -106,6 +106,10 @@ class Oink_Oink_Helper_Checkout
                 && $this->isCheckoutWithGuest())
         );
 
+        $activeMethods = Mage::getModel('payment/config')->getActiveMethods();
+        if (!array_key_exists('oink', $activeMethods))
+            $enabled = false;
+
         return $enabled;
     }
 

@@ -182,17 +182,6 @@
                 <button_image>Button_LG5.png</button_image>
                 <oink_cart_checkout_margin_top>5</oink_cart_checkout_margin_top>
             </checkoutbutton>
-            <messages>
-                <login_error>Invalid username or password</login_error>
-                <max_login_attemps>Too many login attempts. Your account is locked for 10 minutes.</max_login_attemps>
-
-                <approval_required>We are waiting to hear back from your parents. Thanks for using Oink.</approval_required>
-                <transaction_declined>We could not process your transaction. Please try again.</transaction_declined>
-                <insufficient_funds>The Transaction was denied because you do not have enough funds available.</insufficient_funds>
-                <transaction_not_authorized>You are not authorized to buy from this merchant. Please talk to your parents about letting you do this.</transaction_not_authorized>
-                <parent_configuration>Please make sure you configure your guest children and payment accounts in the Oink system</parent_configuration>
-                <payment_not_accepted>The payment type associated with your account is not accepted.</payment_not_accepted>
-            </messages>
         </oink>
         <payment>
             <oink>

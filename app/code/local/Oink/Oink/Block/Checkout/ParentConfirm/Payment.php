@@ -8,16 +8,18 @@ class Oink_Oink_Block_Checkout_ParentConfirm_Payment
 {
     public function getMethods(){
         $helper=Mage::helper("oink");
-        $user=$helper->getUser();
-        $methods=$user->getPaymentMethods();
-        if (!empty($methods)){
-            foreach($methods as $method){
-                if($method->getToken() <> null){
-                    return $methods;
+        try {
+            $user=$helper->getUser();
+            $methods=$user->getPaymentMethods();
+            if (!empty($methods)){
+                foreach($methods as $method){
+                    if($method->getToken() <> null){
+                        return $methods;
+                    }
                 }
             }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
         }
-        throw new Exception("Parent has no payment accounts available/activated. Please refer to Oink's dashboard and configure/activate one.");
-        return;
     }
 }

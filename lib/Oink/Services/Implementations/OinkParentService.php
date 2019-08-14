@@ -45,6 +45,7 @@ class OinkParentService implements IParentService{
             $result_dto->Status = $result->AuthenticateParentResult->Status;            
             
         } catch(Exception $e) {
+            Mage::log($e);
             $result_dto->ErrorMessage = $e->getMessage();
         }
         return $result_dto;
@@ -62,6 +63,7 @@ class OinkParentService implements IParentService{
             $result = $client->GetChildProfiles($params);
             return $result;
         } catch(Exception $e) {
+            Mage::log($e);
             echo $e->getMessage();
         }
    }
