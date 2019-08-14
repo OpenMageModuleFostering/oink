@@ -238,7 +238,7 @@ class Oink_Oink_Helper_Checkout
         $totals = $quote->getTotals();
         $user = $this->getUser();
         if (!isset ($totals["shipping"])) {
-            Mage::throwException(Mage::getStoreConfig("oink/messages/shipping_error"));
+            Mage::getSingleton('checkout/session')->setErrorMessage(Mage::getStoreConfig("oink/messages/shipping_error"));
         }
         $cart = Mage::helper("oink")->getDtoCart();
         if ((bool)$user->getDeliverToChildren()) {

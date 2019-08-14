@@ -126,7 +126,6 @@ class Oink_Oink_CheckoutController extends Mage_Core_Controller_Front_Action
                         Oink_Oink_Helper_Checkout::ORDER_STATUS_APPROVAL_PENDING
                     );
                 } else {
-                    $message = Mage::getStoreConfig("oink/messages/success_transaction");
                     $vpCheckoutHelper->completeOrder($order);
                     $originalOrder->sendNewOrderEmail();
 
@@ -139,9 +138,7 @@ class Oink_Oink_CheckoutController extends Mage_Core_Controller_Front_Action
 
                 $order->save();
                 $originalOrder->save();
-
-                Mage::getSingleton("core/session")->addSuccess($message);
-                $path = "*/*/success";
+                $path = "oink/checkout/success";
                 Mage::getSingleton("customer/session")->unsParentConfirm();
             } else {
                 $errorMessage = Mage::getSingleton("oink/errorHandler")->rewriteError($result->ErrorMessage);
@@ -150,7 +147,7 @@ class Oink_Oink_CheckoutController extends Mage_Core_Controller_Front_Action
             }
         } catch (Exception $e) {
             Mage::getSingleton("core/session")->addError($e->getMessage());
-            $path = "*/*/index";
+            $path = "oink/checkout/failure";
         }
 
         $this->_redirect($path);
@@ -273,6 +270,14 @@ class Oink_Oink_CheckoutController extends Mage_Core_Controller_Front_Action
      * Checkout success page
      */
     public function successAction()
+    {
+        $this->loadLayout()
+            ->renderLayout();
+    }
+    /*
+     *  Checkout failure page
+     */
+    public function failureAction()
     {
         $this->loadLayout()
             ->renderLayout();

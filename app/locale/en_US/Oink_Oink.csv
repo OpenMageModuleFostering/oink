@@ -28,4 +28,12 @@
 "",""
 "",""
 "You need to select a shipping method","You need to select a shipping method"
-"Sorry, no quotes are available for this order at this time.", "Sorry, no quotes are available for this order at this time."
+"Sorry, no quotes are available for this order at this time.", "Unfortunately we cannot ship to your location. Sorry!"
+'Thank you for your purchase!', 'Thank you for your purchase!'
+'Your order has been received.', 'Your order has been received.'
+'Your order # is: %s.', 'Your order # is: %s.'
+'You will receive an order confirmation email with details of your order and a link to track its progress.', 'You will receive an order confirmation email with details of your order and a link to track its progress.'
+'Your billing agreement # is: %s.', 'Your billing agreement # is: %s.'
+'Your recurring payment profiles:', 'Your recurring payment profiles:'
+'Payment profile # %s: "%s".', 'Payment profile # %s: "%s".'
+'Continue Shopping', 'Continue Shopping'

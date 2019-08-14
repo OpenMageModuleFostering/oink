@@ -41,12 +41,24 @@
 	
 	<oink_checkout_shippingmethod>
 		<reference name="content">
-            <block type="oink/checkout_shippingMethod" template="oink/checkout/shipping_method.phtml" name="oink.checkout.shippingMethod" output="toHtml" as="shippingMethod" >
+            <block type="oink/checkout_shippingMethod" template="oink/checkout/shipping_method.phtml" name="oink.checkout.shippingMethod" as="shippingMethod" >
                 <action method="addJs"><script>js/prototype/prototype.js</script></action>
                 <block type="oink/checkout_shippingMethod_available" name="oink.checkout.shippingMethod.available" as="available" template="oink/checkout/shipping_method/available.phtml"/>
             </block>
         </reference>
 	</oink_checkout_shippingmethod>
+
+    <oink_checkout_success>
+        <reference name="content">
+            <block type="oink/checkout_success" name="oink.checkout.success" template="oink/checkout/success.phtml"/>
+        </reference>
+    </oink_checkout_success>
+
+    <oink_checkout_failure>
+        <reference name="content">
+            <block type="oink/checkout_failure" name="oink.checkout.success" template="oink/checkout/failure.phtml"/>
+        </reference>
+    </oink_checkout_failure>
 
     <checkout_cart_index>
         <reference name="checkout.cart.methods">

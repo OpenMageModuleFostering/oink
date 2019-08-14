@@ -185,9 +185,8 @@
             <messages>
                 <login_error>Invalid username or password</login_error>
                 <max_login_attemps>Too many login attempts. Your account is locked for 10 minutes.</max_login_attemps>
-                <shipping_error>We are currently having trouble calculating your shipping. Please try again later.</shipping_error>
+                <shipping_error>Unfortunately we cannot ship to your area. Sorry!</shipping_error>
                 <approval_required>We are waiting to hear back from your parents. Thanks for using Oink.</approval_required>
-                <success_transaction>Your order was created successfully.</success_transaction>
                 <transaction_declined>We could not process your transaction. Please try again.</transaction_declined>
                 <insufficient_funds>The Transaction was denied because you do not have enough funds available.</insufficient_funds>
                 <transaction_not_authorized>You are not authorized to buy from this merchant. Please talk to your parents about letting you do this.</transaction_not_authorized>
