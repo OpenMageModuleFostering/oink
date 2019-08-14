@@ -1,51 +1,51 @@
 <style>
     #oink-checkout {
-        border-radius: 4px;
-        background:white;
+        border-radius: 4px !important;
+        background:white !important;
     }
 
 
     #oink-cart-button {
-        display: inline-block;
+        display: inline-block !important;
         margin-top: <?php echo Mage::getStoreConfig("oink/checkoutbutton/oink_cart_checkout_margin_top").'px;'; ?>
     }
 
     .oink-h2
     {
-        padding-bottom: 5px;
-        font-size: 19px;
-        display: block;
-        text-align: center;
-        font-family: Helvetica,'Open Sans Condensed',sans-serif;
-        font-weight: 200;
-        color: #444444;
-        line-height: 20px;
+        padding-bottom: 5px !important;
+        font-size: 19px !important;
+        display: block !important;
+        text-align: center !important;
+        font-family: Helvetica,'Open Sans Condensed',sans-serif !important;
+        font-weight: 200 !important;
+        color: #444444 !important;
+        line-height: 20px !important;
     }
 
 
     #oink-checkout-button {
-        float: left;
+        float: left !important;
     }
 
     .overlay_magento {
-        background-color: #000;
-        filter:alpha(opacity=60);
-        -moz-opacity: 0.6;
-        opacity: 0.6;
+        background-color: #000 !important;
+        filter:alpha(opacity=60) !important;
+        -moz-opacity: 0.6 !important;
+        opacity: 0.6 !important;
     }
 
     div#info-panel {
-        color: #999999;
-        display:inline-block;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        width:180px;
-        height:253px;
-        padding: 50px 10px 0px 15px;
-        vertical-align:top;
-        background-color: #F3F3F3;
-        border-radius: 4px;
+        color: #999999 !important;
+        display:inline-block !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width:180px !important;
+        height:300px !important;
+        padding: 3px 10px 0px 15px !important;
+        vertical-align:top !important;
+        background-color: #F3F3F3 !important;
+        border-radius: 4px !important;
     }
 
     .dim
@@ -57,17 +57,17 @@
 
     #oink-login #vp-close {
         background: url('<?php echo $skinUrl; ?>x.png') no-repeat;
-        cursor: pointer;
-        height: 17px;
-        position: absolute;
-        right: 30px;
-        top: 30px;
-        width: 17px;
+        cursor: pointer !important;
+        height: 17px !important;
+        position: absolute !important;
+        right: 30px !important;
+        top: 30px !important;
+        width: 17px !important;
     }
 
     #login-form-button {
-        border: 1px solid #EE7A27;
-        background-color: #F57D28;
+        border: 1px solid #EE7A27 !important;
+        background-color: #F57D28 !important;
         background: -moz-linear-gradient(top, #f68b3e 0%, #ee7a27 100%);
         background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f68b3e), color-stop(100%, #ee7a27));
         background: -webkit-linear-gradient(top, #f68b3e 0%, #ee7a27 100%);
@@ -76,13 +76,13 @@
         background: linear-gradient(to bottom, #f68b3e 0%, #ee7a27 100%);
     }
     #sign-up-button {
-        width: 130px;
-        height: 26px;
-        line-height:26px;
+        width: 130px !important;
+        height: 26px !important;
+        line-height:26px !important;
         border: 1px solid #03A2A7;
         background-color: #0AA5A8;
-        margin-left:415px;
-        margin-top:-47px;
+        margin-left:415px !important;
+        margin-top:-47px !important;
         background: -moz-linear-gradient(top, #39c4cb 0%, #03a2a7 100%);
         background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #39c4cb), color-stop(100%, #03a2a7));
         background: -webkit-linear-gradient(top, #39c4cb 0%, #03a2a7 100%);
@@ -91,61 +91,62 @@
         background: linear-gradient(to bottom, #39c4cb 0%, #03a2a7 100%);
     }
     .oink-button {
-        color: #ffffff;
-        cursor: pointer;
-        text-decoration: none;
-        height: 28px;
-        font-size: 14px;
-        min-width: 88px;
-        border-radius: 4px;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
+        color: #ffffff !important;
+        cursor: pointer !important;
+        text-decoration: none !important;
+        height: 28px !important;
+        font-size: 14px !important;
+        min-width: 88px !important;
+        border-radius: 4px !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
         display:inline-block;
-        vertical-align: middle;
+        vertical-align: middle !important;
     }
 
     .oink-note {
-        color: #666666;
-        font-size: 11px;
-        text-decoration: none;
-        font-family: Helvetica,'Open Sans Condensed',sans-serif;
-        font-weight: 200;
+        color: #666666 !important;
+        font-size: 11px !important;
+        text-decoration: none !important;
+        font-family: Helvetica,'Open Sans Condensed',sans-serif !important;
+        font-weight: 200 !important;
     }
 
     #oink-login {
-        float: left;
-        display: inline-block;
-        width: 350px;
-        position: relative;
+        float: left !important;
+        display: inline-block !important;
+        width: 350px !important;
+        position: relative !important;
         background-color: white;
         box-shadow: 3px 0px 5px -2px rgba(0, 0, 0, 0.25);
-        padding: 0px 20px 0px 20px;
-        height:303px;
-        border-top-left-radius:4px;
-        border-bottom-left-radius:4px;
+        padding: 0px 20px 0px 20px !important;
+        height:303px !important;
+        border-top-left-radius:4px !important;
+        border-bottom-left-radius:4px !important;
     }
     #oink-login-userid, #oink-login-password
     {
-        border: 1px solid #c0c0bf;
-        border-radius: 4px;
-        color: #666;
-        font-size: 10pt;
-        padding: 5px;
-        width: 345px;
-        text-decoration: none;
-        font-family: Helvetica,'Open Sans Condensed',sans-serif;
+        border: 1px solid #c0c0bf !important;
+        border-radius: 4px !important;
+        color: #666 !important;
+        font-size: 10pt !important;
+        padding: 5px !important;
+        width: 345px !important;
+        text-decoration: none !important;
+        font-family: Helvetica,'Open Sans Condensed',sans-serif !important;
     }
 
     div#oink-modal {
-        background-color: #F3F3F3;
+        background-color: #F3F3F3 !important;
         box-shadow: 0 10px 10px rgba(0,0,0,0.3);
-        border-radius: 4px;
-        height: 300px;
+        border-radius: 4px !important;
+        height: 300px !important;
+        z-index: 100000000 !important; /*Some merchants have weird z-index values that force our modal underneath elements*/
     }
     .oink-block{
-        border-radius: 4px;
-        background-color: #F3F3F3;
+        border-radius: 4px !important;
+        background-color: #F3F3F3 !important;
     }
     #oink-close {
         float:right;
@@ -154,18 +155,18 @@
         left:10px;
     }
     .spinner {
-        text-align: center;
+        text-align: center !important;
         display:none;
-        border-radius:4px;
-        margin:0;
-        width: 350px;
+        border-radius:4px !important;
+        margin:0 !important;
+        width: 350px !important;
     }
 
     .spinner img {
-        width: 54px;
-        height: 54px;
-        margin-top: 55px;
-        margin-bottom: 10px;
+        width: 54px !important;
+        height: 54px !important;
+        margin-top: 55px !important;
+        margin-bottom: 10px !important;
 
         -webkit-transition-property: -webkit-transform;
         -webkit-transition-duration: 1s;
@@ -201,6 +202,21 @@
         margin: 0;
     }
 
+    ::-webkit-input-placeholder {
+        color: #c0c0bf !important;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+        color: #c0c0bf !important;
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+        color: #c0c0bf !important;
+    }
+
+    :-ms-input-placeholder {
+        color: #c0c0bf !important;
+    }
 </style>
 
 <?php $skinUrl = $this->getSkinUrl('images/oink/checkout/'); ?>
@@ -216,15 +232,15 @@
         <!-- left col -->
         <div id="oink-login" align="center">
             <div id="oink-close"><a style="text-decoration:none;cursor:pointer;" onClick="return closePopup()"><img src="<?php echo $skinUrl; ?>x.png" /></a></div>
-            <img src="//cdn.virtualpiggy.com/public/images/checkout-logo-192x75.png" height="80" style="padding-top:20px; padding-bottom:20px;"/>
+            <img src="//cdn.virtualpiggy.com/public/images/checkout-logo-192x75.png" style="width:18em; padding-top:20px; padding-bottom:20px;"/>
             <form id="oink-checkout">
                 <div align="center" style="padding-top:10px;">
-                    <input class="textBox required-entry" onkeypress="bindOinkLoginPost(event)" id="oink-login-userid" name="UserName" tabindex="2" type="text" placeholder="Username" />
+                    <input class="textBox required-entry" onkeypress="bindOinkLoginPost(event)" onfocus="stopAutoCenter()" onblur="autoCenter()" id="oink-login-userid" name="UserName" tabindex="2" type="text" placeholder="Username" />
                 </div>
                 <div align="center" style="padding-top:5px;">
-                    <input autocomplete="off" onkeypress="bindOinkLoginPost(event)" class="textBox required-entry" id="oink-login-password" name="Password" tabindex="3" type="password" placeholder="Password" />
+                    <input autocomplete="off" onkeypress="bindOinkLoginPost(event)" onfocus="stopAutoCenter()" onblur="autoCenter()" class="textBox required-entry" id="oink-login-password" name="Password" tabindex="3" type="password" placeholder="Password" />
                     <div class="opensans" style="font-size:10pt;color:#ff0000;" id="oink-errors-container">&nbsp;</div>
-                    <div><a href="//users.virtualpiggy.com/login/resetpassword" target="_blank" class="oink-note" style="margin-top: 14px">Forgot Password?</a></div>
+                    <div><a href="//users.virtualpiggy.com/login/resetpassword" target="_blank" class="oink-note" style="margin-top: 10px">Forgot Password?</a></div>
                     <button onclick="return oinkLoginForm.submit();" id="login-form-button" class="oink-button" type="button">Login</button>
                 </div>
             </form>
@@ -235,15 +251,15 @@
             </div>
         </div>
     </div>
-    <div align="right" style="margin:0px; background-color:#F3F3F3; border-radius:4px;">
+    <div align="right" id="info-panel-wrapper" style="margin:0px; background-color:#F3F3F3; border-radius:4px;">
         <div id="info-panel" align="center">
-            <div>
+            <div style="padding-top:50px;">
                 <span class="oink-h2">What is Oink?</span>
             </div>
             <div style="padding-top:15px;">
                 <span style="font-size:10pt;color:#444;">Oink is the safe way for kids and teens to save, shop and give online.</span>
             </div>
-            <div style="padding-top:60px">
+            <div style="padding-top:10px">
                 <a href="//www.oink.com/" target="_blank" class="oink-note">Learn More</a>
             </div>
         </div>
@@ -254,10 +270,12 @@
 <input type="hidden" id="oink-checkout-url" value="<?php echo $this->getCheckoutUrl() ?>"/>
 <script type="text/javascript">
     //<![CDATA[
+
+
     function showSpinner() {
-        $('oink-checkout').setStyle({ display: 'none'});
-        $('oink-login').setStyle({backgroundColor: '#BBBBBB'}).addClassName('dim');
+        $('oink-login').setStyle({backgroundColor: '#BBBBBB'});
         $('oink-loading').setStyle({ display: 'block'});
+        $('oink-checkout').setStyle({ display: 'none'});
         $('sign-up-button').setStyle({ display: 'none'});
         return false;
     }
@@ -265,7 +283,7 @@
     function hideSpinner() {
         $('oink-loading').setStyle({ display: 'none'});
         $('oink-checkout').setStyle({ display: 'block'});
-        $('oink-login').setStyle({backgroundColor: 'white'}).removeClassName('dim');
+        $('oink-login').setStyle({backgroundColor: 'white'});
         $('sign-up-button').setStyle({ display: 'inline-block'});
     }
 
@@ -302,23 +320,28 @@
         if($('p_method_oink')){
             $('p_method_oink').checked=1;
         }
-        if (screen.width < 700 || screen.height < 400) {
-            $('info-panel').setStyle({ display: 'none'});
+        if ( isMobile() ) {
+            $('info-panel-wrapper').setStyle({ display: 'none'});
             $('sign-up-button').setStyle({ display: 'none'});
             $('oink-login').setStyle({ borderRadius: '4px', boxShadow: 'none'});
             Dialog.info($('oink-modal').innerHTML, {
                 className:"magento",
                 width: 370,
                 height:300,
-                top: 0,
-                left: ((screen.width - (370))/2),
-                recenterAuto:true
+                zIndex:100000,
+                top: ((screen.height - 320)/2 ),
+                left: ((window.innerWidth- 370)/2),
+                recenterAuto:false
             });
         } else {
             Dialog.info($('oink-modal').innerHTML, {
+                id: "oink-modal-float",
                 className:"magento",
                 width:600,
                 height:300,
+                zIndex:100000,
+                hideEffect:Element.hide,
+                showEffect:Element.show,
                 top: ((window.innerHeight - 300)/2),
                 left: ((window.innerWidth - 600)/2),
                 recenterAuto:true
@@ -327,7 +350,16 @@
         }
         return false;
     }
-
+    function stopAutoCenter() {
+    }
+    function autoCenter() {
+    }
+    function isMobile() {
+        if(screen.width < 768) {
+            return true;
+        }
+        return false;
+    }
     oinkLoginForm.submit=function(){
         var user=$('oink-login-userid').value;
         var password=$('oink-login-password').value;
@@ -345,23 +377,22 @@
                     showSpinner();
                 },
 
-                onComplete:function(){},
-
-                onSuccess:function(transport) {
+                onComplete:function(transport) {
                     var json=eval('(' + transport.responseText + ')');
 
                     if(json.response) {
                         setLocation($("oink-checkout-url").value);
                         $('oink-errors-container').innerHTML = '';
-                    } else
-                    {
+                    }
+                    else {
                         hideSpinner();
                         $('oink-errors-container').innerHTML = json.errorMessage;
-                        $('oink-login').setStyle({ display: 'inline-block'});
+                        $('info-panel').removeClassName('dim');
 
-                        if (screen.width >= 700 || screen.height >= 400) {
-                            $('info-panel').setStyle({display: 'inline-block'}).removeClassName('dim');
+                        if (! isMobile() ) {
+                            $('oink-close').setStyle({ left: '220px'});
                         }
+
                         $('login-form-button').innerHTML = '<button onclick="return oinkLoginForm.submit();" id="login-form-button" class="oink-button" type="button">Login</button>';
                     }
                 }

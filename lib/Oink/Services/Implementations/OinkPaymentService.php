@@ -153,7 +153,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->ChildName = $result->GetChildAddressResult->AttentionOf;
         } catch (Exception $e) {
             Mage::log($e);
-            $result_dto->ErrorMessage = $e->getMessage();
+            throw new Exception($e->getMessage());
         }
         return $result_dto;
     }
@@ -185,7 +185,7 @@ class OinkPaymentService implements IPaymentService {
             $result_dto->ParentName = $result->GetParentAddressResult->Name;
         } catch (Exception $e) {
             Mage::log($e);
-            $result_dto->ErrorMessage = $e->getMessage();
+            throw new Exception($e->getMessage());
         }
         return $result_dto;
     }

@@ -158,9 +158,13 @@ class Oink_Oink_CheckoutController extends Mage_Core_Controller_Front_Action
 
     protected function _setAddress()
     {
-        $address = Mage::helper('oink/checkout')->getUser()->getAddress(null,true);
-
-        Mage::getModel('checkout/type_onepage')->saveShipping($address->getData());
+        try {
+            $address = Mage::helper('oink/checkout')->getUser()->getAddress(null,true);
+            Mage::getModel('checkout/type_onepage')->saveShipping($address->getData());
+        } catch (Exception $e) {
+            Mage::getSingleton("core/session")->addError($e->getMessage());
+            $this->_redirect("oink/checkout/failure");
+        }
     }
 
     protected function _isShippingMethodSelected()

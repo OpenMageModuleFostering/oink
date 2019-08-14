@@ -5,7 +5,6 @@ $childrens = $this->getChildrens();
 
 
 
-
 <li class="section allow active" id="opc-billing">
     <div class="step-title">
         <h2><?php echo $this->__("Child information") ?></h2>
@@ -13,8 +12,8 @@ $childrens = $this->getChildrens();
 
     <div id="checkout-step-billing" class="step a-item" style="">
         <fieldset>
-            <ul class="form-list">
-                <li id="billing-new-address-form">
+            <dl class="sp-methods">
+                <dd id="billing-new-address-form">
                     <fieldset>
                         <ul>
                             <li class="fields">
@@ -32,14 +31,16 @@ $childrens = $this->getChildrens();
                             </li>
                         </ul>
                     </fieldset>
-                </li>
-                <li class="control">
-                    <!--input type="checkbox" id="notifyChild" name="notifyChild" value="1" /><label for="notifyChild" ><?php echo $this->__("Notify the child about this transaction") ?></label><br-->
-                    <input type="checkbox" id="deliverToChildAddress" name="deliverToChildAddress" value="1" />
-                    <label for="deliverToChildAddress" ><?php echo $this->__("Deliver to this child's address") ?></label>
-                </li>
-            </ul>
-
+                </dd>
+                <dd class="control">
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="deliverToChildAddress" name="deliverToChildAddress" value="1" />
+                            <label for="deliverToChildAddress" ><?php echo $this->__("Deliver to this child's address") ?></label>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
         </fieldset>
     </div>
 </li>

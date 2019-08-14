@@ -249,6 +249,11 @@ class Oink_Oink_Helper_Checkout
             $cart->ShipmentAddress = $user->getSelectedChildrenAddressDto();
         } else {
             $cart->ShipmentAddress = $user->getAddressDto();
+            try {
+                $cart->ShipmentAddress = $user->getAddressDto();
+            } catch (Exception $e) {
+                throw new Exception($e->getMessage());
+            }
         }
         $this->_fillCartWithItems($cart, $quote);
         $cart->Currency = $quote->getBaseCurrencyCode();

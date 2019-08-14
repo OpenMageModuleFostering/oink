@@ -58,7 +58,12 @@ class Oink_Oink_Model_User
     {
         if (is_null($this->_address)) {
             if(is_null($oinkAddress)){
-                $oinkAddress = $this->getAddressDto();
+                try {
+                    $oinkAddress = $this->getAddressDto();
+                } catch (Exception $e) {
+                    throw new Exception($e->getMessage());
+                }
+
             }
             $resource=Mage::getSingleton("core/resource");
             $connection=$resource->getConnection("core_read");
