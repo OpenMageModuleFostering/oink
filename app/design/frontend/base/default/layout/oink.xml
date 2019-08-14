@@ -38,6 +38,15 @@
             </block>
         </reference>
     </oink_checkout_parentconfirm>
+	
+	<oink_checkout_shippingmethod>
+		<reference name="content">
+            <block type="oink/checkout_shippingMethod" template="oink/checkout/shipping_method.phtml" name="oink.checkout.shippingMethod" output="toHtml" as="shippingMethod" >
+                <action method="addJs"><script>js/prototype/prototype.js</script></action>
+                <block type="oink/checkout_shippingMethod_available" name="oink.checkout.shippingMethod.available" as="available" template="oink/checkout/shipping_method/available.phtml"/>
+            </block>
+        </reference>
+	</oink_checkout_shippingmethod>
 
     <checkout_cart_index>
         <reference name="checkout.cart.methods">

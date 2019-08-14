@@ -12,6 +12,7 @@ class Oink_Oink_Model_User
 
     protected $_token;
     protected $_address;
+    protected $_arrayAddress;
     /**
      * Authenticate child and get the the result 
      * 
@@ -45,12 +46,15 @@ class Oink_Oink_Model_User
             Mage::throwException($auth->ErrorMessage);
         }
     }
+
     /**
-     * Get address from Oink and change it to magento format
+     * Get address from Oink and change it to magento format. Optional flag to get street
+     * as an array. 'street' must be an array for onepage checkout to accept an address.
      * @param dtoAddress
+     * @param boolean
      * @return Varien_Object
      */
-    public function getAddress($oinkAddress=null)
+    public function getAddress($oinkAddress=null, $inArray=false)
     {
         if (is_null($this->_address)) {
             if(is_null($oinkAddress)){
@@ -59,7 +63,7 @@ class Oink_Oink_Model_User
             $resource=Mage::getSingleton("core/resource");
             $connection=$resource->getConnection("core_read");
             $table=$resource->getTableName("directory_country_region");
-            $query = "SELECT default_name,region_id FROM {$table} WHERE country_id='{$oinkAddress->Country}' and code='{$oinkAddress->State}'"; 
+            $query = "SELECT default_name,region_id FROM {$table} WHERE country_id='{$oinkAddress->Country}' and code='{$oinkAddress->State}'";
             $region = $connection->fetchRow($query);
 
             $this->_address = new Varien_Object(array(
@@ -75,8 +79,17 @@ class Oink_Oink_Model_User
                 "email" => $oinkAddress->ParentEmail,
             ));
         }
+
+        if (is_null($this->_arrayAddress)) {
+            $this->_arrayAddress = clone $this->_address;
+            $this->_arrayAddress["street"] = array($oinkAddress->Address);
+        }
+
+        if ($inArray)
+            return $this->_arrayAddress;
         return $this->_address;
     }
+
     /**
      * @return Oink_Oink_Helper_Data
      */

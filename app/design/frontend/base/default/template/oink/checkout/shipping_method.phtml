@@ -1,0 +1,23 @@
+<script type="text/javascript" src="<?php echo $this->getJsUrl('prototype/prototype.js')?>"></script>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('prototype/validation.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('varien/form.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/opcheckout.js') ?>"></script>
+
+<div class="page-title"><h1><?php echo $this->__('Oink Guest Checkout'); ?></h1></div>
+
+<ol class="opc">
+    <form id="co-shipping-method-form" method="POST" action="<?php echo $this->getUrl("oink/checkout/processShippingMethod"); ?>" >
+        <div id="checkout-shipping-method-load">
+           <?php echo $this->getChildHtml('available') ?>
+        </div>
+
+        <div class="buttons-set" id="shipping-method-buttons-container">
+            <button type="submit" title="<?php echo $this->__('Continue'); ?>" class="button" ><span><span><?php echo $this->__('Continue') ?></span></span></button>
+        </div>
+        <script type="text/javascript">
+            //<![CDATA[
+            var shippingMethod = new ShippingMethod('co-shipping-method-form', "<?php echo $this->getUrl('checkout/onepage/saveShippingMethod') ?>");
+            //]]>
+        </script>
+    </form>
+</ol>
