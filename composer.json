@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Oink",
+    "name": "OpenMageModuleFostering\/Oink",
     "type": "magento-module",
     "license": "LGPL",
     "homepage": "",
     "description": "Oink is a module for eCommerce storefronts that allows children to safely make online purchases.",
     "authors": [
-    {
-        "name": "Simon Taft",
-        "email": "simon@oink.com"
-    }
-],
+        {
+            "name": "Simon Taft",
+            "email": "simon@oink.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
